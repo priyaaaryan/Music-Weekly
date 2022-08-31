@@ -1,8 +1,8 @@
 const { Sequelize, Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 // create our Post model
-class Post extends Model { }
-// create fields/columns for Post model
+class Upload extends Model { }
+// create fields/columns for Upload model
 Post.init(
     
         {
@@ -12,16 +12,13 @@ Post.init(
               primaryKey: true,
               autoIncrement: true
             },
-            title: {
+            filepath: {
               type: DataTypes.STRING,
               allowNull: false
             },
-            post_url: {
+            filetype: {
               type: DataTypes.STRING,
-              allowNull: false,
-              validate: {
-                isURL: true
-              }
+              allowNull: false              
             },
             user_id: {
               type: DataTypes.INTEGER,
@@ -35,8 +32,8 @@ Post.init(
             sequelize,
             freezeTableName: true,
             underscored: true,
-            modelName: 'posts'
+            modelName: 'uploads'
           }
         );
 
-module.exports = Post;
+module.exports = Upload;

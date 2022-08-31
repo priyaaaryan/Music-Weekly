@@ -3,9 +3,9 @@ const routes = require('./routes');
 const hbs = exphbs.create({});
 const sequelize = require('./config/connection');
 
-
 //Load the code for express into the express variable.
 const express = require ('express');
+
 // Initialize (create) the express object.
 const app = express();
 const PORT = process.env.SERVER_PORT || 3001;
@@ -23,6 +23,7 @@ app.use(routes);
 app.get('/',(req,res)=>{
     res.send('Hello!');
 });
+
 
 // turn on connection to db and server
 sequelize.sync({ force: false }).then(() => {
