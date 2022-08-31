@@ -3,7 +3,7 @@ const sequelize = require('../config/connection');
 // create our Post model
 class Upload extends Model { }
 // create fields/columns for Upload model
-Post.init(
+Upload.init(
     
         {
             id: {
@@ -20,6 +20,17 @@ Post.init(
               type: DataTypes.STRING,
               allowNull: false              
             },
+            updated_by:{
+              type: DataTypes.STRING,
+              allowNull: false 
+
+            },
+
+            updated_at:{
+              type: DataTypes.DATE,
+              allowNull: false
+
+            },
             user_id: {
               type: DataTypes.INTEGER,
               references: {
@@ -27,12 +38,13 @@ Post.init(
                 key: 'id'
               }
             }
+            
           },
           {
             sequelize,
             freezeTableName: true,
             underscored: true,
-            modelName: 'uploads'
+            modelName: 'file'
           }
         );
 

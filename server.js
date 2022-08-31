@@ -24,6 +24,25 @@ app.get('/',(req,res)=>{
     res.send('Hello!');
 });
 
+/*app.post('./routes/api/upload-route.js',upload.single('profile'), function (req, res) {
+    message : "Error! in file upload."
+      if (!req.file) {
+          console.log("No file received");
+            message = "Error! in image upload."
+          res.render('index',{message: message, status:'danger'});
+      
+        } else {
+          console.log('file received');
+          console.log(req);
+          var sql = "INSERT INTO `file`(`name`, `type`, `size`) VALUES ('" + req.file.filename + "', '"+req.file.mimetype+"', '"+req.file.size+"')";
+                  var query = db.query(sql, function(err, result) {
+                     console.log('inserted data');
+                  });
+          message = "Successfully! uploaded";
+          res.render('index',{message: message, status:'success'});
+        }
+  });*/
+
 
 // turn on connection to db and server
 sequelize.sync({ force: false }).then(() => {
