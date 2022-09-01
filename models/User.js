@@ -46,10 +46,6 @@ User.init(
       validate: {
         isEmail: true
       }
-    },
-    filetype:{
-      type: DataTypes.STRING,
-      allowNull: false
     }
   },
   {
