@@ -31,6 +31,40 @@ If one song a week is too strenuous, feel free to submit a song every other week
 
 UNDERNEATH the welcome paragraph there will be five buttons.
 
+
+DB Stucture
+
+Table-
+Registration -
+	id- (Primary key)
+	Name -
+    	Username-
+      	Email-
+	image_ref -
+	About me -
+	Password -
+
+
+Blog-
+	id-
+	title -
+	instrut-
+	Attachment-
+	created_at-
+	comments -
+	userid - foriegn key
+
+
+
+
+
+
+		
+Due Assignment - 9 days after creation date
+
+
+
+
 THE BUTTONS will be labelled in order “WEEKLY PROMPTS”, “MAKE A SUGGESTION”, “MEET THE MEMBERS”, “MESSENGER”, “MY PROFILE”.
 
 UNDERNEATH the buttons there will be a section available for anyone to make posts. 
