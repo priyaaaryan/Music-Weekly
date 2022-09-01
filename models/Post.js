@@ -16,12 +16,16 @@ Post.init(
               type: DataTypes.STRING,
               allowNull: false
             },
-            post_url: {
+            content_txt : {
               type: DataTypes.STRING,
               allowNull: false,
               validate: {
                 isURL: true
               }
+            },
+            Attached_type:{
+              ype: DataTypes.STRING,
+              allowNull: true
             },
             user_id: {
               type: DataTypes.INTEGER,

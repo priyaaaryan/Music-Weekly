@@ -39,6 +39,17 @@ User.init(
         // this means the password must be at least four characters long
         len: [4]
       }
+    },
+    email:{
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        isEmail: true
+      }
+    },
+    filetype:{
+      type: DataTypes.STRING,
+      allowNull: false
     }
   },
   {
