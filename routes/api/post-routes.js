@@ -1,40 +1,11 @@
-const router = require('express').Router();
-const { Post, User } = require('../models');
+const router = require("express").Router();
+const postController = require("../../controllers/post-controller");
 
 // get all posts
-router.get('/', (req, res) => {
-    console.log('======================');
-    Post.findAll({
-      // Query configuration
-      attributes: ['id', 'post_url', 'title', 'created_at'],
-      //Join the user tables
-      include: [
-        {
-          model: User,
-          attributes: ['username']
-        }
-      ]
-    })
-    .then(dbPostData => res.json(dbPostData))
-    .catch(err => {
-      console.log(err);
-      res.status(500).json(err);
-    });
-  });
-  
-  router.post('/', (req, res) => {
-    Post.create({
-      title: req.body.title,
-      post_url: req.body.post_url,
-      user_id: req.body.user_id
-    })
-      .then(dbPostData => res.json(dbPostData))
-      .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-      });
-  });
+router.get("/", postController.loadAllPostsPage);
 
+router.post("/", postController.createPost);
 
-  module.exports = router;
-
+// get single post
+router.get("/post/:id", postController.loadSinglePostPage);
+module.exports = router;

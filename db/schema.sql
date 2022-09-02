@@ -2,16 +2,15 @@ DROP DATABASE musicweekly;
 CREATE DATABASE musicweekly;
 Use musicweekly;
 
-CREATE TABLE User (
+CREATE TABLE Users (
   id int(11) NOT NULL AUTO_INCREMENT,
   username varchar(100) NOT NULL,
   email varchar(255) NOT NULL,
   password varchar(100) NOT NULL,
-  filetype varchar(100) Not null,
   PRIMARY KEY(id)
 );
 
-CREATE TABLE post (
+CREATE TABLE posts (
     id int NOT NULL AUTO_INCREMENT,
     Title varchar(255) NOT NULL,
     content_txt varchar(255) NOT NULL,
@@ -30,7 +29,6 @@ CREATE TABLE Comments(
     PRIMARY KEY(id),
     FOREIGN KEY (post_id) REFERENCES POSTS(id),
     FOREIGN Key (user_id) REFERENCES Users(id)
-
 );
 
 

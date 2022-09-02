@@ -1,28 +1,24 @@
-const exphbs = require('express-handlebars');
-const routes = require('./routes');
+const exphbs = require("express-handlebars");
+const routes = require("./routes");
 const hbs = exphbs.create({});
-const sequelize = require('./config/connection');
+const sequelize = require("./config/connection");
 
 //Load the code for express into the express variable.
-const express = require ('express');
+const express = require("express");
 
 // Initialize (create) the express object.
 const app = express();
 const PORT = process.env.SERVER_PORT || 3001;
 
-app.engine('handlebars', hbs.engine);
-app.set('view engine', 'handlebars');
+app.engine("handlebars", hbs.engine);
+app.set("view engine", "handlebars");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static('public'));
+app.use(express.static("public"));
 
 // turn on routes
 app.use(routes);
-
-app.get('/',(req,res)=>{
-    res.send('Hello!');
-});
 
 /*app.post('./routes/api/upload-route.js',upload.single('profile'), function (req, res) {
     message : "Error! in file upload."
@@ -43,9 +39,8 @@ app.get('/',(req,res)=>{
         }
   });*/
 
-
 // turn on connection to db and server
 sequelize.sync({ force: false }).then(() => {
-    //One method/function that starts the server 
-    app.listen(PORT, () => console.log('Now listening on port '+ PORT));
-  });
+  //One method/function that starts the server
+  app.listen(PORT, () => console.log("Now listening on port " + PORT));
+});
