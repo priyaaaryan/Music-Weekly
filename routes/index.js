@@ -10,6 +10,8 @@ router.use("/api", apiRoutes);
 router.use("/upload", uploadRoutes);
 router.use("/home", homeRoutes);
 router.use("/dashboard", dashboardRoutes);
+router.use("/",homeRoutes);
+router.use("*",homeRoutes);
 
 router.use((req, res) => {
   res.status(404).end();
