@@ -81,7 +81,6 @@ const usersController = {
       password: req.body.password,
     })
       .then((dbUserData) => {
-        res.json(dbUserData);
       })
       .catch((err) => {
         console.log(err);
