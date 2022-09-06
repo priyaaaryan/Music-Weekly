@@ -143,10 +143,6 @@ footer a {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
-.hero-form button:hover {
-  background-color:var(--quaternary-color);  
-}
-
 .hero-form h3 {
   font-size: 24px;
   margin: 0;
@@ -184,6 +180,25 @@ footer a {
   font-size: 16px;
   border-radius: 10px;
 } 
+
+.hero-form button:hover {
+  background-color:var(--quaternary-color);  
+}
+
+.form-button button {
+  color: var(--primary-color);
+  background-color: var(--secondary-color);
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 10px;
+  float: right;
+} 
+
+.form-button button:hover {
+  background-color:var(--quaternary-color);  
+}
+
 /* HERO STYLES END */
 
 /* WHAT WE DO STYLES */
