@@ -1,7 +1,7 @@
 //First letter that is a capital means it is a Class/Datatype.
 //() means it is a constructor because Router is the name of a class and it is being used as a functions.
 const router = require("express").Router();
-const userController = require("../../controllers/api/users-controller");
+const userController = require("../../controllers/users-controller");
 
 // GET /api/users
 router.get("/", userController.loadAllUsersPage);
