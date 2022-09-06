@@ -13,7 +13,8 @@
         body: JSON.stringify({
           username,
           email,
-          password
+          password,
+          bio
         }),
         headers: { 'Content-Type': 'application/json' }
       });
