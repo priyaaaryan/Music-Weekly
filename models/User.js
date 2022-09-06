@@ -46,6 +46,14 @@ User.init(
       validate: {
         isEmail: true
       }
+    },
+
+    bio:{
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        isBio: true
+      }
     }
   },
   {
