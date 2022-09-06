@@ -3,7 +3,7 @@ const multer = require("multer");
 const uploadAvatarController = require("../controllers/upload-avatar-controller");
 const uploadAvatarMiddleware = require("../middleware/upload-avatar");
 const uploadController = require("../controllers/upload-controller");
-const userController = require("../controllers/users-controller");
+//const userController = require("../controllers/users-controller");
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {

@@ -30,7 +30,7 @@
         <div class="hero-form">
         <h3>Start Composing Today!</h3>
         <p>Fill out this form to register and join the group!</p>
-        <form action="/register" method="post">
+        <form class = "signup">
         <label for="fullname">First and Last Name</label>
             <input type="text" name="fullname" id="fullname" class="form-input"/>
         <label for="username">Username</label>
@@ -43,11 +43,13 @@
             <input type="text" name="password" id="password2" class="form-input"/>
         <label for="bio">About Me</label>
             <textarea type="text" name="bio" id="bio" class="form-input" cols="30" rows="10"> tell us about yourself...</textarea>
-        <row>
             <col>
-                <button type="submit">Start Composing!</button>
+              <button type="submit">Start Composing!</button>
             </col>
-            <col><p>already a member?</p><button type="submit" value="Log In Here">Log In Here</button>
+            </form>
+        <row>
+            <col><p>already a member?</p><button type="submit" value="Log In">Log In Here</button>
             </col>
     </row>
 </container>
+<script src = "/js/singup.js"></script>
