@@ -76,24 +76,24 @@ const usersController = {
   },
 
   createUser: (req, res) => {
-     User.create({
+    User.create({
       username: req.body.Username,
       password: req.body.password[0],
       email: req.body.email,
-      bio: req.body.bio
-  })
-    .then(dbUserData => {
-      // req.session.save(() => {
-      //   req.session.user_id = dbUserData.id;
-      //   req.session.username = dbUserData.username;
-      //   req.session.loggedIn = true;
-      res.render('blog');
-        //res.json(dbUserData);
+      bio: req.body.bio,
+    })
+      .then((dbUserData) => {
+        // req.session.save(() => {
+        //   req.session.user_id = dbUserData.id;
+        //   req.session.username = dbUserData.username;
+        //   req.session.loggedIn = true;
+        // res.render("blog");
+        res.json(dbUserData);
       })
-        .catch(err => {
-      console.log(err);
-      res.status(500).json(err);
-    });
+      .catch((err) => {
+        console.log(err);
+        res.status(500).json(err);
+      });
   },
 
   loadLoginPage: (req, res) => {
