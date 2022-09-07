@@ -7,7 +7,7 @@ CREATE TABLE Users (
   username varchar(100) NOT NULL,
   email varchar(255) NOT NULL,
   password varchar(100) NOT NULL,
-  bio varchar(255),
+  bio varchar(255), 
   PRIMARY KEY(id)
 );
 
