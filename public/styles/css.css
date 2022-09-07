@@ -176,7 +176,7 @@ footer a {
   margin: 0 5px;
 }
 
-.hero-form .blog button {
+.hero-form button {
   color: var(--primary-color);
   background-color: var(--secondary-color);
   border: none;
@@ -185,7 +185,7 @@ footer a {
   border-radius: 10px;
 } 
 
-.hero-form .blog button:hover {
+.hero-form button:hover {
   background-color:var(--quaternary-color);  
 }
 
