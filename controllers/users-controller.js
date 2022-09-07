@@ -5,7 +5,11 @@ const usersController = {
     User.findAll({
       attributes: { exclude: ["password"] },
     })
-      .then((dbUserData) => res.json(dbUserData))
+      .then((dbUserData) => {  
+        console.log(dbUserData[0].get({plain:true}));
+        const musicians = dbUserData.map(user => user.get({plain:true}));
+        res.render('musicians', {musicians});
+      })
       .catch((err) => {
         console.log(err);
         res.status(500).json(err);

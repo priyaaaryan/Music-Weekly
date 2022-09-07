@@ -3,7 +3,13 @@
         <col>
             <div class="hero-intro">
                 <h2>Meet our Musicians</h2><br>
-                
+                <ul id="musicians">{{#each musicians}}
+                    <li class="musiciansLI">
+                        {{this.username}}
+                    </li>
+                    {{/each}}
+
+                </ul>
             </div>
         </col>
     </row>
