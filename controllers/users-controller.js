@@ -1,13 +1,5 @@
 const { User } = require("../models");
 
-function checkMatching(arrayIn){
-  if(arrayIn[0] === arrayIn[1]) {
-    return arrayIn[0];
-  }else{
-    console.log("Password does not match");
-  }
-};
-
 const usersController = {
   loadAllUsersPage: (req, res) => {
     User.findAll({
@@ -84,21 +76,24 @@ const usersController = {
   },
 
   createUser: (req, res) => {
-    // expects {username: 'Lernantino', password: 'password1234'}
-    User.create({      
+     User.create({
       username: req.body.Username,
-      password: checkMatching(req.body.password),
+      password: req.body.password[0],
       email: req.body.email,
-      bio: req.body.bio,
-    })
-
-      .then((dbUserData) => {
-        
+      bio: req.body.bio
+  })
+    .then(dbUserData => {
+      // req.session.save(() => {
+      //   req.session.user_id = dbUserData.id;
+      //   req.session.username = dbUserData.username;
+      //   req.session.loggedIn = true;
+      res.render('blog');
+        //res.json(dbUserData);
       })
-      .catch((err) => {
-        console.log(err);
-        res.status(500).json(err);
-      });
+        .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
   },
 
   loadLoginPage: (req, res) => {

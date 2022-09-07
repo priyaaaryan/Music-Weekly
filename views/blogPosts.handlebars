@@ -1,0 +1,19 @@
+<ul class="blogPosts">
+    {{#each posts}}
+        <div class="card">
+            <div class="titleTextArea">{{this.title}}</div> {{! get teh post title from the posts object}}
+            <div class="postTextArea">{{this.content_txt}}</div> {{!get the post text from the posts object}}
+            <form class="postCommentForm">
+                <input type="text" name="commentImput" class="form-input"/><button name="submit">SUBMIT</button>
+            </form>
+            <ul>
+            {{#each this.comments}} {{! send comments for each post in an array attached to each comment}}
+                <li name="postComment">
+                    <div name="userName">{{this.userName}}</div> 
+                    <div name="commentText">{{this.commentText}}</div>
+                </li> 
+            {{/each}}
+            </ul>
+        </div>
+    {{/each}}
+</ul>
