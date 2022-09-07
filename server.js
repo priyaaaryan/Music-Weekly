@@ -1,18 +1,13 @@
 const exphbs = require("express-handlebars");
 const routes = require("./routes");
 const sequelize = require("./config/connection");
-<<<<<<< HEAD
 const session = require("express-session");
 //Load the code for express into the express variable.
-=======
-const path = require('path');
-const session = require('express-session');
 
-
-const SequelizeStore = require('connect-session-sequelize')(session.Store);
->>>>>>> 686a21bdc2b1d7a7b3208f2b5ad919bf7106324c
-const express = require("express");
+const path = require("path");
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
+
+const express = require("express");
 
 // Initialize (create) the express object.
 const app = express();
@@ -27,37 +22,21 @@ const sess = {
   }),
 };
 
-const helpers = require('./utils/helpers');
+const helpers = require("./utils/helpers");
 
 const hbs = exphbs.create({ helpers });
-
-const sess = {
-  secret: 'Super secret secret',
-  cookie: {},
-  resave: false,
-  saveUninitialized: true,
-  store: new SequelizeStore({
-    db: sequelize
-  })
-};
 
 app.use(session(sess));
 
 //Load the code for express into the express variable.
-
-
 
 app.engine("handlebars", hbs.engine);
 app.set("view engine", "handlebars");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static("public"));
-<<<<<<< HEAD
-app.use(session(sess));
-=======
-app.use(express.static(path.join(__dirname, 'public')));
->>>>>>> 686a21bdc2b1d7a7b3208f2b5ad919bf7106324c
+
+app.use(express.static(path.join(__dirname, "public")));
 
 // turn on routes
 app.use(routes);
