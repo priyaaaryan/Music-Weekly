@@ -22,7 +22,7 @@ Post.init(
         isURL: true,
       },
     },
-    attached_type: {
+    Attached_type: {
       type: DataTypes.STRING,
       allowNull: true,
     },
