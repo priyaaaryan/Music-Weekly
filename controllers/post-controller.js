@@ -47,7 +47,7 @@ const postController = {
         if (dbPostData) {
           const post = dbPostData.get({ plain: true });
 
-          res.render("single-post", { post });
+          res.render("single-post", { post,loggedIn :false });
         } else {
           res.status(404).end();
         }
