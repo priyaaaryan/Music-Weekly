@@ -2,12 +2,12 @@ DROP DATABASE musicweekly;
 CREATE DATABASE musicweekly;
 Use musicweekly;
 
-CREATE TABLE Users (
+CREATE TABLE users (
   id int(11) NOT NULL AUTO_INCREMENT,
   username varchar(100) NOT NULL,
   email varchar(255) NOT NULL,
   password varchar(100) NOT NULL,
-  bio varchar(255),
+  bio varchar(255), 
   PRIMARY KEY(id)
 );
 

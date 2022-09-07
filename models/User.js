@@ -14,8 +14,8 @@ class User extends Model {
 // define table columns and configuration
 User.init(
   {
-    // define an id column
-    id: {
+      // define an id column
+      id: {
       // use the special Sequelize DataTypes object provide what type of data it is
       type: DataTypes.INTEGER,
       // this is the equivalent of SQL's `NOT NULL` option
@@ -46,14 +46,10 @@ User.init(
       validate: {
         isEmail: true
       }
-    },
-
+    }, 
     bio:{
       type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        isBio: true
-      }
+      allowNull: true,
     }
   },
   {
