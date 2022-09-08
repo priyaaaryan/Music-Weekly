@@ -18,7 +18,7 @@ async function loginFormHandler(event) {
     console.log("RESPONSE" + JSON.stringify(response));
 
     if (response.ok) {
-      document.location.replace("/dashboard/");
+      document.location.replace("/blog/");
     } else {
       alert(response.statusText);
       console.log(response.statusText);

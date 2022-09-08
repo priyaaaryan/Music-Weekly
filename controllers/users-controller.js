@@ -17,6 +17,7 @@ const usersController = {
   },
 
   loadSingleUserPage: (req, res) => {
+    console.log(req);
     User.findOne({
       attributes: { exclude: ["password"] },
       where: {
@@ -113,7 +114,7 @@ const usersController = {
     // expects {username: 'lernant', password: 'password1234'}
     User.findOne({
       where: {
-        username: req.body.username,
+        email: req.body.email,
       },
     }).then((dbUserData) => {
       if (!dbUserData) {
