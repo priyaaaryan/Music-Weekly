@@ -8,6 +8,7 @@ CREATE TABLE Users (
   email varchar(255) NOT NULL,
   password varchar(100) NOT NULL,
   bio varchar(255), 
+  image varchar(255),
   PRIMARY KEY(id)
 );
 
