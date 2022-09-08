@@ -2,6 +2,7 @@ const exphbs = require("express-handlebars");
 const routes = require("./routes");
 const sequelize = require("./config/connection");
 const session = require("express-session");
+
 //Load the code for express into the express variable.
 
 const path = require("path");

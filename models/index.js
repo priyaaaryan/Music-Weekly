@@ -1,8 +1,7 @@
 const User = require('./User');
 const Post = require("./Post");
 const Comment = require("./Comments");
-const Image = require("./image.model")
-module.exports = { User, Post, Comment,Image};
+module.exports = { User, Post, Comment};
 
 // create associations
 User.belongsToMany(Post, {
@@ -17,8 +16,3 @@ Post.belongsToMany(User, {
   foreignKey: 'post_id'
 });
 
-User.hasOne(Image,{
-  through: Image,
-  as: 'profile_image',
-  foreignKey: 'user_id'
-})

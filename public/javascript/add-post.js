@@ -1,14 +1,16 @@
 async function newFormHandler(event) {
   event.preventDefault();
 
-  const title = document.querySelector('input[name="post-title"]').value;
-  const post_url = document.querySelector('input[name="post-url"]').value;
+  const title = document.querySelector('input[name="title"]').value;
+  const content_txt = document.querySelector('input[name="content_txt"]').value;
+  const attach = document.querySelector('#attached_type').value;
 
   const response = await fetch(`/api/posts`, {
     method: 'POST',
     body: JSON.stringify({
       title,
-      post_url
+      content_txt,
+      attacted_type
     }),
     headers: {
       'Content-Type': 'application/json'
@@ -16,7 +18,7 @@ async function newFormHandler(event) {
   });
 
   if (response.ok) {
-    document.location.replace('/dashboard');
+    document.location.replace('/classroom');
   } else {
     alert(response.statusText);
   }
