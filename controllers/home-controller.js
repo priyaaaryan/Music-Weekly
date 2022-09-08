@@ -5,6 +5,10 @@ router.get("/",(req,res)=>{
   res.render("homepage");
 })
 
+router.get("/login",(req,res)=>{
+  res.render("login")
+})
+
 router.get("/blog",(req,res)=>{
   res.render("blog");
 })
