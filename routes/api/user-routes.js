@@ -28,7 +28,7 @@ router.get("/:id", userController.loadSingleUserPage);
 router.get("/musicians", userController.loadAllUsersPage);
 
 // POST /api/users (Note to self: Post is a way to send information to the server after the request is sent - without any relation to the URL. )
-router.post("/", userController.createUser);
+router.post("/",upload, userController.createUser);
 
 // PUT /api/users/1
 router.put("/:id", userController.updateUser);

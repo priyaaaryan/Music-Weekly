@@ -85,7 +85,8 @@ const usersController = {
       username: req.body.Username,
       password: req.body.password[0],
       email: req.body.email,
-      bio: req.body.bio
+      bio: req.body.bio,
+      image : req.body.file
     })
       .then((dbUserData) => {
         // req.session.save(() => {
