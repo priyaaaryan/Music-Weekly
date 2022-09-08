@@ -23,7 +23,8 @@ const postController = {
   createPost: (req, res) => {
     Post.create({
       title: req.body.title,
-      post_url: req.body.post_url,
+      content_txt: req.body.content_txt,
+      attached_type:req.body.attached_type,
       user_id: req.body.user_id,
     })
       .then((dbPostData) => res.json(dbPostData))
