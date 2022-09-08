@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 async function loginFormHandler(event) {
   event.preventDefault();
 
@@ -62,32 +61,32 @@ document
 document
   .querySelector(".signup-form")
   .addEventListener("submit", signupFormHandler);
-=======
-//  login submission 
+
+//  login submission
 async function loginFormHandler(event) {
-    event.preventDefault();
-  
-    const username = document.querySelector('#username-login').value.trim();
-    const password = document.querySelector('#password-login').value.trim();
-  
-    if (username && password) {
-      const response = await fetch('/api/users/login', {
-        method: 'post',
-        body: JSON.stringify({
-          username,
-          password
-        }),
-        headers: { 'Content-Type': 'application/json' }
-      });
-  
-      if (response.ok) {
-        document.location.replace('/blog');
-      } else {
-        alert(response.statusText);
-      }
+  event.preventDefault();
+
+  const username = document.querySelector("#username-login").value.trim();
+  const password = document.querySelector("#password-login").value.trim();
+
+  if (username && password) {
+    const response = await fetch("/api/users/login", {
+      method: "post",
+      body: JSON.stringify({
+        username,
+        password,
+      }),
+      headers: { "Content-Type": "application/json" },
+    });
+
+    if (response.ok) {
+      document.location.replace("/blog");
+    } else {
+      alert(response.statusText);
     }
   }
-  
+}
 
-document.querySelector('#login-form').addEventListener('submit', loginFormHandler);
->>>>>>> 686a21bdc2b1d7a7b3208f2b5ad919bf7106324c
+document
+  .querySelector("#login-form")
+  .addEventListener("submit", loginFormHandler);
