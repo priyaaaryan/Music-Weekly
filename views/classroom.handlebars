@@ -2,19 +2,22 @@
     <row class="hero">
         <col>   
             <div class = "hero-form">
-            <h2>Start Your Assignment</h2><br>
+            <h2>Describe your challenge!</h2><br>
             <form action="/api/posts" method="post" id="post-form">
             <label for="tilte">Prompt:</label>
-            <input type="text" name="title" id="title"class="form-input"/>
+            <input minlength= "5" required type="text" name="title" id="title"class="form-input"/>
             <label for="content_txt">Challenge:</label>
-            <textarea type="text" name="content_txt" id="content_txt" cols="30" rows="10" class="form-input"></textarea>
+            <textarea minlength= "5" required type="text" name="content_txt" id="content_txt" cols="30" rows="10" class="form-input"></textarea>
             <label for="attached_type">Attachment:</label>
-            <input type="file" id="attached_type" class="form-input"/>
-            <button type="submit">Submit Assignment</button>
+            <input required type="file" id="attached_type" class="form-input"/>
+            <button type="submit">Submit</button>
             </form>
             </div>
-            
         </col>
-        </col>
+    </row>
+    <row class="challenges">
+   {{#each posts as |post|}}
+        {{> challenge post}}
+  {{/each}}
     </row>
 </container>

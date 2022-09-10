@@ -1,4 +1,4 @@
-const { Post, User } = require("../models");
+const { Post, Users, Comment } = require("../models");
 const postController = {
   loadAllPostsPage: (req, res) => {
     console.log("======================");
@@ -8,7 +8,7 @@ const postController = {
       //Join the user tables
       include: [
         {
-          model: User,
+          model: Users,
           attributes: ["username"],
         },
       ],
@@ -24,7 +24,7 @@ const postController = {
     Post.create({
       title: req.body.title,
       content_txt: req.body.content_txt,
-      attached_type:req.body.attached_type,
+      attached_type: req.body.attached_type,
       user_id: req.body.user_id,
     })
       .then((dbPostData) => res.json(dbPostData))
@@ -37,18 +37,18 @@ const postController = {
   loadSinglePostPage: (req, res) => {
     Post.findByPk(req.params.id, {
       include: [
-        User,
+        Users,
         {
           model: Comment,
-          include: [User],
+          include: [Users],
         },
       ],
     })
       .then((dbPostData) => {
         if (dbPostData) {
           const post = dbPostData.get({ plain: true });
-
-          res.render("single-post", { post,loggedIn :false });
+          console.log("YOYOYOYOYOYOYOYO");
+          res.render("single-post", { post, loggedIn: true });
         } else {
           res.status(404).end();
         }
