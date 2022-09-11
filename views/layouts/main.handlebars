@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <link rel="stylesheet" href="/styles/css.css">
+    <link rel="stylesheet" href="../styles/css.css">
     <title>Music Weekly</title>
   </head>
   <body>
@@ -27,13 +27,17 @@
                   <a href="/classroom">Classroom</a>
                 </li>
                 <li>
-                  <a href="/api/musicians">Musicians</a>
+                  <a href="/musicians">Musicians</a>
                 </li>
-                {{#unless loggedIn}}
-                 <li id="logout">
-                 <a>Log Out</a> 
+                {{#if loggedIn}}
+                <li>
+                    <a id="logout">Logout</a>
                 </li>
-                  {{/unless}}
+                {{else}}
+                    <li>
+                        <a href="/login">Login</a>
+                    </li>
+                {{/if}}
               </ul>
             </nav>
           <col>
@@ -43,11 +47,10 @@
   <main>
     {{{body}}}
   </main>
-  
+
   <footer>
   </footer>
-  {{#if loggedIn}}
-  <script src="/javascript/logout.js"></script>
-  {{/if}}
-  </body>
+    {{#if loggedIn}}
+        <script src="/javascript/logout.js"></script>
+    {{/if}}
 </html>

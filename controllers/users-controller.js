@@ -27,7 +27,6 @@ const usersController = {
       .then((dbUsersData) => {
         if (!dbUsersData) {
           res.status(404).json({ message: "No user found with this id" });
-          console.log("loaduserYYYYYYYYYYYYUSER");
           return;
         }
         res.json(dbUsersData);
@@ -52,7 +51,6 @@ const usersController = {
       .then((dbUsersData) => {
         if (!dbUsersData[0]) {
           res.status(404).json({ message: "No user found with this id" });
-          console.log("UpdateYYYYYYYYYYYYUSER");
           return;
         }
         res.json(dbUsersData);
@@ -72,7 +70,6 @@ const usersController = {
       .then((dbUsersData) => {
         if (!dbUsersData) {
           res.status(404).json({ message: "No user found with this id" });
-          console.log("deleteYYYYYYYYYYYYUSER");
           return;
         }
         res.json(dbUsersData);
@@ -91,13 +88,17 @@ const usersController = {
       bio: req.body.bio,
       image: req.file.filename,
     })
-      .then((dbUserData) => {
-        // req.session.save(() => {
-        //   req.session.user_id = dbUserData.id;
-        //   req.session.username = dbUserData.username;
-        //   req.session.loggedIn = true;
-        // res.render("blog");
-        res.json(dbUsersData);
+      .then((dbUsersData) => {
+        req.session.save(() => {
+          req.session.user_id = dbUsersData.id;
+          req.session.username = dbUsersData.username;
+          req.session.loggedIn = true;
+
+          //redirect to the login page because we successfully created a user
+          res.redirect("/blog");
+        });
+
+
       })
       .catch((err) => {
         console.log(err);
@@ -154,7 +155,6 @@ const usersController = {
 
   logout: (req, res) => {
     if (req.session.loggedIn) {
-      console.log("LOGGGGGGGGGGGINGOUT");
       req.session.destroy(() => {
         res.status(204).end();
       });

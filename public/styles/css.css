@@ -282,5 +282,37 @@ footer a {
   }
 }
 
-.challenges { color: black; 
+/* Priya's styles */
+.challenges a:visited{
+  /*color: black;*/
+color: white;
+}
+
+.comments{
+  /*color: black;*/
+}
+
+.priya-hero {
+  background-image: url('../images/Digital_Music_Background.png');
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  flex-wrap: nowrap;
+  align-items: center;
+  background-attachment: fixed;
+  background-position: 80%;
+  flex-direction: column;
+  align-content: center;
+}
+
+.priya-hero-form {
+  border: 3px solid var(--secondary-color);
+  background-color: rgba(252, 226, 56, 0.811);
+  padding: 20px;
+  font-size: 1.5ww;
+  font-weight: bold;
+  color: var(--quinary-color);
+  margin: 3.5%;
+  border-radius: 15px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }

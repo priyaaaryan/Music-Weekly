@@ -3,8 +3,9 @@
         <div class="card">
             <div class="titleTextArea">{{this.title}}</div> {{! get the post title from the posts object}}
             <div class="postTextArea">{{this.content_txt}}</div> {{!get the post text from the posts object}}
+            <form action="/api/posts" method="post" id="post-form"></form>
             <form class="postCommentForm">
-                <input type="text" name="commentImput" class="form-input"/><button name="submit">SUBMIT</button>
+                <input type="text" name="commentInput" class="form-input"/><button name="submit">SUBMIT</button>
             </form>
             <ul>
             {{#each this.comments}} {{! send comments for each post in an array attached to each comment}}
