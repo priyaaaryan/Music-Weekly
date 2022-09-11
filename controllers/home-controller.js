@@ -2,7 +2,7 @@ const router = require("express").Router();
 const { Post, Users } = require("../models");
 
 router.get("/", (req, res) => {
-  res.render("homepage");
+  res.render("homepage", { loggedIn: req.session.loggedIn });
 });
 
 router.get("/login", (req, res) => {
@@ -10,7 +10,7 @@ router.get("/login", (req, res) => {
 });
 
 router.get("/blog", (req, res) => {
-  res.render("blog");
+  res.render("blog", { loggedIn: req.session.loggedIn });
 });
 
 router.get("/musicians", (req, res) => {
@@ -32,7 +32,7 @@ router.get("/classroom", (req, res) => {
     .then((dbPostData) => {
       const posts = dbPostData.map((post) => post.get({ plain: true }));
       console.log("LOOK HERE" + JSON.stringify(dbPostData));
-      res.render("classroom", { posts });
+      res.render("classroom", { posts, loggedIn: req.session.loggedIn });
     })
     .catch((err) => {
       console.log(err);

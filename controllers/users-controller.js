@@ -27,6 +27,7 @@ const usersController = {
       .then((dbUsersData) => {
         if (!dbUsersData) {
           res.status(404).json({ message: "No user found with this id" });
+          console.log("loaduserYYYYYYYYYYYYUSER");
           return;
         }
         res.json(dbUsersData);
@@ -51,6 +52,7 @@ const usersController = {
       .then((dbUsersData) => {
         if (!dbUsersData[0]) {
           res.status(404).json({ message: "No user found with this id" });
+          console.log("UpdateYYYYYYYYYYYYUSER");
           return;
         }
         res.json(dbUsersData);
@@ -70,6 +72,7 @@ const usersController = {
       .then((dbUsersData) => {
         if (!dbUsersData) {
           res.status(404).json({ message: "No user found with this id" });
+          console.log("deleteYYYYYYYYYYYYUSER");
           return;
         }
         res.json(dbUsersData);
@@ -151,6 +154,7 @@ const usersController = {
 
   logout: (req, res) => {
     if (req.session.loggedIn) {
+      console.log("LOGGGGGGGGGGGINGOUT");
       req.session.destroy(() => {
         res.status(204).end();
       });

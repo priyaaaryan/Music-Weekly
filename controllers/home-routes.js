@@ -9,7 +9,8 @@ router.get("/", (req, res) => {
     .then((dbPostData) => {
       const posts = dbPostData.map((post) => post.get({ plain: true }));
 
-      res.render("all-posts", { posts });
+      res.render("all-posts", { posts, loggedIn: req.session.loggedIn });
+      console.log("THIS IS ALL POST");
     })
     .catch((err) => {
       res.status(500).json(err);
