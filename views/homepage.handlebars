@@ -32,17 +32,17 @@
         <p>Fill out this form to register and join the group!</p>
         <form action="/api/users" method="post" enctype="multipart/form-data" id="register">
         <label for="username">Username</label>
-            <input type="text" name="Username" id="username" name="name" class="form-input"/>
+            <input required type="text" name="Username" id="username" name="name" class="form-input"/>
         <label for="email">Your Email</label>
-            <input type="email" name="email" id="email" class="form-input"/>
+            <input required type="email" name="email" id="email" class="form-input"/>
         <label for="passwprd">Password</label>
-            <input type="password" name="password" id="password1" class="form-input"/>
+            <input required type="password" name="password" id="password1" class="form-input"/>
         <label for="password">Confirm Password</label>
-            <input type="password" name="password" id="password2" class="form-input"/>
+            <input required type="password" name="password" id="password2" class="form-input"/>
         <label for="bio">About Me</label>
-            <textarea type="text" name="bio" id="bio" class="form-input" cols="30" rows="10"> tell us about yourself...</textarea>
+            <textarea required type="text" name="bio" id="bio" class="form-input" cols="30" rows="10"> tell us about yourself...</textarea>
             <label for="file">Profile Image</label>
-            <input type="file" name="file" id="file" class="form-input"/>
+            <input requied type="file" name="file" id="file" class="form-input"/>
         <row>
             <col>
                 <button type="submit">Start Composing!</button>
