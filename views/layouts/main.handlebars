@@ -20,6 +20,8 @@
           <col>
             <nav>
               <ul>
+                {{#if loggedIn}}
+
                 <li>
                   <a href="/blog">Blog</a>
                 </li>
@@ -27,8 +29,16 @@
                   <a href="/classroom">Classroom</a>
                 </li>
                 <li>
-                  <a href="/api/musicians">Musicians</a>
+                  <a href="/musicians">Musicians</a>
                 </li>
+                <li>
+                    <a id="logout">Logout</a>
+                </li>
+                {{else}}
+                    <li>
+                        <a href="/login">Login</a>
+                    </li>
+                {{/if}}
               </ul>
             </nav>
           <col>
@@ -38,7 +48,10 @@
   <main>
     {{{body}}}
   </main>
-  
+
   <footer>
   </footer>
+    {{#if loggedIn}}
+        <script src="/javascript/logout.js"></script>
+    {{/if}}
 </html>

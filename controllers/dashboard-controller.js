@@ -4,7 +4,7 @@ const dashboardController = {
   loadAllPostAdminPage: (req, res) => {
     Post.findAll({
       where: {
-        userId: req.session.userId,
+        user_id: req.session.user_id,
       },
     })
       .then((dbPostData) => {

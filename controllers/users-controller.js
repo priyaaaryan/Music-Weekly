@@ -1,14 +1,14 @@
-const { User } = require("../models");
+const { Users } = require("../models");
 
 const usersController = {
   loadAllUsersPage: (req, res) => {
-    User.findAll({
+    Users.findAll({
       attributes: { exclude: ["password"] },
     })
-      .then((dbUserData) => {  
-        console.log(dbUserData[0].get({plain:true}));
-        const musicians = dbUserData.map(user => user.get({plain:true}));
-        res.render('musicians', {musicians});
+      .then((dbUsersData) => {
+        console.log(dbUsersData.get({ plain: true }));
+        const musicians = dbUsersData.map((user) => user.get({ plain: true }));
+        res.render("musicians", { musicians });
       })
       .catch((err) => {
         console.log(err);
@@ -17,18 +17,19 @@ const usersController = {
   },
 
   loadSingleUserPage: (req, res) => {
-    User.findOne({
+    console.log(req);
+    Users.findOne({
       attributes: { exclude: ["password"] },
       where: {
         id: req.params.id,
       },
     })
-      .then((dbUserData) => {
-        if (!dbUserData) {
+      .then((dbUsersData) => {
+        if (!dbUsersData) {
           res.status(404).json({ message: "No user found with this id" });
           return;
         }
-        res.json(dbUserData);
+        res.json(dbUsersData);
       })
       .catch((err) => {
         console.log(err);
@@ -40,19 +41,19 @@ const usersController = {
     // expects {username: 'Lernantino', password: 'password1234'}
 
     // if req.body has exact key/value pairs to match the model, you can just use `req.body` instead
-    User.update(req.body, {
+    Users.update(req.body, {
       //Ensures the hook gets used
       individualHooks: true,
       where: {
         id: req.params.id,
       },
     })
-      .then((dbUserData) => {
-        if (!dbUserData[0]) {
+      .then((dbUsersData) => {
+        if (!dbUsersData[0]) {
           res.status(404).json({ message: "No user found with this id" });
           return;
         }
-        res.json(dbUserData);
+        res.json(dbUsersData);
       })
       .catch((err) => {
         console.log(err);
@@ -61,17 +62,17 @@ const usersController = {
   },
 
   deleteUser: (req, res) => {
-    User.destroy({
+    Users.destroy({
       where: {
         id: req.params.id,
       },
     })
-      .then((dbUserData) => {
-        if (!dbUserData) {
+      .then((dbUsersData) => {
+        if (!dbUsersData) {
           res.status(404).json({ message: "No user found with this id" });
           return;
         }
-        res.json(dbUserData);
+        res.json(dbUsersData);
       })
       .catch((err) => {
         console.log(err);
@@ -80,24 +81,29 @@ const usersController = {
   },
 
   createUser: (req, res) => {
-     User.create({
+    Users.create({
       username: req.body.Username,
       password: req.body.password[0],
       email: req.body.email,
-      bio: req.body.bio
-  })
-    .then(dbUserData => {
-      // req.session.save(() => {
-      //   req.session.user_id = dbUserData.id;
-      //   req.session.username = dbUserData.username;
-      //   req.session.loggedIn = true;
-      res.render('blog');
-        //res.json(dbUserData);
+      bio: req.body.bio,
+      image: req.file.filename,
+    })
+      .then((dbUsersData) => {
+        req.session.save(() => {
+          req.session.user_id = dbUsersData.id;
+          req.session.username = dbUsersData.username;
+          req.session.loggedIn = true;
+
+          //redirect to the login page because we successfully created a user
+          res.redirect("/blog");
+        });
+
+
       })
-        .catch(err => {
-      console.log(err);
-      res.status(500).json(err);
-    });
+      .catch((err) => {
+        console.log(err);
+        res.status(500).json(err);
+      });
   },
 
   loadLoginPage: (req, res) => {
@@ -111,39 +117,50 @@ const usersController = {
 
   login: (req, res) => {
     // expects {username: 'lernant', password: 'password1234'}
-    User.findOne({
+    Users.findOne({
       where: {
-        username: req.body.username,
+        email: req.body.email,
       },
-    }).then((dbUserData) => {
-      if (!dbUserData) {
-        res.status(400).json({ message: "No user with that name!" });
-        return;
-      }
+    })
+      .then((dbUsersData) => {
+        if (!dbUsersData) {
+          res.status(400).json({ message: "No user with that name!" });
+          return;
+        }
 
-      //res.json({ user: dbUserData });
+        //res.json({ user: dbUserData });
 
-      // Verify user
-      const isValidPassword = dbUserData.checkPassword(req.body.password);
-      if (!isValidPassword) {
-        res.status(400).json({ message: "Incorrect password!" });
-        return;
-      }
-    req.session.save(() => {
-                req.session.user_id = dbUserData.id;
-                req.session.username = dbUserData.username;
-                req.session.loggedIn = true;
+        // Verify user
+        const isValidPassword = dbUsersData.checkPassword(req.body.password);
+        if (!isValidPassword) {
+          res.status(400).json({ message: "Incorrect password!" });
+          return;
+        }
+        req.session.save(() => {
+          req.session.user_id = dbUsersData.id;
+          req.session.username = dbUsersData.username;
+          req.session.loggedIn = true;
 
-                res.json({
-                    user: dbUserData,
-                    message: 'You are now logged in'
-                });
-            });
-        })
-        .catch(err => {
-          console.log(err);
-          res.status(500).json(err);
+          res.json({
+            user: dbUsersData,
+            message: "You are now logged in",
+          });
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+        res.status(500).json(err);
       });
+  },
+
+  logout: (req, res) => {
+    if (req.session.loggedIn) {
+      req.session.destroy(() => {
+        res.status(204).end();
+      });
+    } else {
+      res.status(404).end();
+    }
   },
 
   loadSignUpPage: (req, res) => {

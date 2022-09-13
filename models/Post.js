@@ -18,11 +18,8 @@ Post.init(
     content_txt: {
       type: DataTypes.STRING,
       allowNull: false,
-      validate: {
-        isURL: true,
-      },
     },
-    Attached_type: {
+    attached_type: {
       type: DataTypes.STRING,
       allowNull: true,
     },
