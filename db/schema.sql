@@ -25,7 +25,7 @@ CREATE TABLE posts (
 
 CREATE TABLE comments(
     id int NOT NULL AUTO_INCREMENT,
-    comment varchar(277) Not Null,
+    comment_txt varchar(277) Not Null,
     user_id int,
     post_id int,
     PRIMARY KEY(id),
