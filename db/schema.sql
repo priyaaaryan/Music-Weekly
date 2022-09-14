@@ -12,16 +12,16 @@ Use musicweekly;
 --   PRIMARY KEY(id)
 -- );
 
--- CREATE TABLE posts (
---     id int NOT NULL AUTO_INCREMENT,
---     Title varchar(255) NOT NULL,
---     content_txt varchar(255) NOT NULL,
---     created_at datetime not null DEFAULT CURRENT_TIMESTAMP,
---     Attached_type varchar(100),
---     user_id int,
---     PRIMARY KEY (id),
---     FOREIGN KEY (user_id) REFERENCES Users(id)
--- ); 
+CREATE TABLE posts (
+    id int NOT NULL AUTO_INCREMENT,
+    Title varchar(255) NOT NULL,
+    content_txt varchar(255) NOT NULL,
+    created_at datetime not null DEFAULT CURRENT_TIMESTAMP,
+    Attached_type varchar(100),
+    user_id int,
+    PRIMARY KEY (id),
+    FOREIGN KEY (user_id) REFERENCES Users(id)
+); 
 
 -- CREATE TABLE comments(
 --     id int NOT NULL AUTO_INCREMENT,

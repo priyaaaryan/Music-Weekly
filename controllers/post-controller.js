@@ -22,15 +22,24 @@ const postController = {
   },
 
   createPost: (req, res) => {
+    console.log(">>>>>FILE: " + req.file);
     Post.create({
       title: req.body.title,
       content_txt: req.body.content_txt,
-      attached_type: req.body.attached_type,
+
+      attached_file: req.body.attached_file,
       user_id: req.session.user_id,
+      type: req.body.type
     })
       .then((dbPostData) => {
         //res.json(dbPostData);
-        res.redirect("/classroom");
+        if(req.body.type === "blog"){
+          res.redirect("/blog");
+        }
+        else if(req.body.type === "challenge"){
+          res.redirect("/classroom");
+        }
+
       })
       .catch((err) => {
         console.log(err);
@@ -51,9 +60,13 @@ const postController = {
       .then((dbPostData) => {
         if (dbPostData) {
           const post = dbPostData.get({ plain: true });
-          console.log("FOUND POST.comments: " + JSON.stringify(post.comments));
+          console.log(">>>>>FOUND POST.comments: " + JSON.stringify(post.comments));
           //loggedIn is sent because it is used by main.handlebars
-          res.render("single-post", { post, loggedIn: req.session.loggedIn ? true : false, helpers });
+          res.render("single-post", {
+            post,
+            loggedIn: (req.session.loggedIn ? true : false),
+            helpers,
+          });
         } else {
           res.status(404).end();
         }
