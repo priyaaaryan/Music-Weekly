@@ -7,12 +7,18 @@
                 <h2>Meet our Musicians</h2><br>
                 <ul id="musicians">{{#each musicians}}
                     <li class="musiciansLI" id = "musicians">
-                       <img src ="/uploads/{{this.image}}" width="30" height="30">
-                       <a href="#bio_intro">{{this.username}}</a>
-                        
+                        <ul>
+                       {{this.username}}
+                       <div class = "profile" style = "display: none">
+                       
+                            <li><lable id="meet">Profile-Picture:-</lable><br>
+                            <img src ="/uploads/{{this.image}}" id = "Profil-image" width="100" height="100"></li>
+                            <li><label id="bio_intro">About me : {{this.bio}} </label></li>
+                    </div>     
+                    </ul>
                     </li>
 
-                    <label id="bio_intro">About me : {{this.bio}} </label>
+                        
                     
                     {{/each}}
 
@@ -22,11 +28,9 @@
     </row>
 </container>
 <script>
-    $("#bio_intro").hide();
-
-     $("#musicians").click(function(){
-            $("#bio_intro").show();
-
+    $("#musicians").click(function(){
+        $('.profile').toggle("slide");
     })
+
 
 </script>
