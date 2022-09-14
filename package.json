@@ -1,7 +1,7 @@
 {
   "name": "musicweekly",
   "engines": {
-    "node": "12.11.1"
+    "node": ">=50.9"
   },
   "version": "1.0.0",
   "description": "building an application music weekly",
@@ -13,6 +13,7 @@
   "author": "Team Music Weekly",
   "license": "ISC",
   "dependencies": {
+    "16": "^0.0.2",
     "bcrypt": "^5.0.1",
     "body-parser": "^1.20.0",
     "connect-session-sequelize": "^7.1.4",
@@ -24,6 +25,7 @@
     "handlebars": "^4.7.7",
     "multer": "^1.4.5-lts.1",
     "mysql2": "^2.3.3",
+    "node": "^18.9.0",
     "nodemon": "^2.0.19",
     "package": "^1.0.1",
     "sequelize": "^6.21.6"
