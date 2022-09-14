@@ -1,3 +1,6 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+
 <container>
     <!-- used to check if logged in or not when testing-->
     <!-- <p style="color: black;">loggedIn: {{loggedIn}}</p> -->
@@ -33,14 +36,15 @@
         <h3>Start Composing Today!</h3>
         <p>Fill out this form to register and join the group!</p>
         <form action="/api/users" method="post" enctype="multipart/form-data" id="register">
-        <label for="username">Username</label>
-            <input type="text" name="Username" id="username" name="name" class="form-input"/>
+        <label for="username">Full Name</label>
+            <input type="text" name="Username" id="username" name="name" class="form-input" required/>
         <label for="email">Your Email</label>
-            <input type="email" name="email" id="email" class="form-input"/>
+            <input type="email" name="email" id="email" class="form-input" required/>
         <label for="passwprd">Password</label>
-            <input type="password" name="password" id="password1" class="form-input"/>
+            <input type="password" name="password" id="password1" class="form-input" required/>
         <label for="password">Confirm Password</label>
             <input type="password" name="password" id="password2" class="form-input"/>
+        <div style="margin-top: 7px;" id="CheckPasswordMatch"></div>
         <label for="bio">About Me</label>
             <textarea type="text" name="bio" id="bio" class="form-input" cols="30" rows="10"> tell us about yourself...</textarea>
             <label for="file">Profile Image</label>
@@ -57,3 +61,16 @@
         </col>
         </row>
 </container>
+
+<script>
+
+   $("#password2").on('keyup', function(){
+    var password = $("#password1").val();
+    var confirmPassword = $("#password2").val();
+    if (password != confirmPassword)
+        $("#CheckPasswordMatch").html("Password does not match !").css("color","red");
+    else
+        $("#CheckPasswordMatch").html("Password match !").css("color","green");
+   });
+
+</script>
