@@ -115,7 +115,7 @@ footer a {
 
 .hero-intro {
   border: 3px solid var(--secondary-color);
-  background-color: rgba(252, 226, 56, 0.834);
+  background-color: rgba(252, 226, 56, 0.905);
   padding: 20px;
   font-size: 1.5ww;
   font-weight: bold;
@@ -132,7 +132,7 @@ footer a {
 
 .hero-form {
   border: 3px solid var(--secondary-color);
-  background-color: rgba(252, 226, 56, 0.811);
+  background-color: rgba(252, 226, 56, 0.905);
   padding: 20px;
   font-size: 1.5ww;
   font-weight: bold;
@@ -191,7 +191,7 @@ footer a {
 
 .blog {
   border: 3px solid var(--secondary-color);
-  background-color: rgba(252, 226, 56, 0.834);
+  background-color: rgba(252, 226, 56, 0.905);
   padding: 20px;
   font-size: 1.5ww;
   font-weight: bold;
@@ -288,7 +288,7 @@ footer a {
 color: white;
 }
 
-.comments{
+.comments {
   /*color: black;*/
 }
 
