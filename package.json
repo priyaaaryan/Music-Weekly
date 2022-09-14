@@ -1,13 +1,16 @@
 {
   "name": "musicweekly",
+  "engines": {
+    "node": "12.11.1"
+  },
   "version": "1.0.0",
-  "description": "",
+  "description": "building an application music weekly",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Team Music Weekly",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.0.1",
@@ -18,9 +21,7 @@
     "express-handlebars": "^6.0.6",
     "express-session": "^1.17.3",
     "exxpress": "^1.0.0",
-    "fund": "^1.0.0",
     "handlebars": "^4.7.7",
-    "install": "^0.13.0",
     "multer": "^1.4.5-lts.1",
     "mysql2": "^2.3.3",
     "nodemon": "^2.0.19",
