@@ -1,5 +1,5 @@
 INSERT INTO comments
-  (id, comment_text, user_id, post_id, created_at, updated_at)
+  (id, comment_text, user_id, post_id)
 VALUES
     (default,"I'm trying this technique atm:
 
@@ -24,7 +24,7 @@ at the end of the 10 minutes, 90% will probably be throw away (or maybe not who 
     (default,"Hello again! I hope your music is all going amazingly, I'm excited to see how this week goes after listening to everyone's music last week!  Remember, it doesn't have to be spectacular - just finishing something once a week is enough to improve your music in the long run. I've posted next week's prompt, it's there whenever everyone's ready!", 4,);
 
 INSERT INTO posts
-  (id, title, content_txt,  user_id, created_at, updated_at)
+  (id, title, content_txt,  user_id)
 VALUES
     (default,'Song #25. Tiny Violin', 'Prompt: Masquerade. Challenge: write the saddest melody you can.', 4),
     (default,'Song #24. Family Heirloom', 'Prompt: Family Heirloom. Challenge: use a 12-tone row.', 4),
@@ -39,7 +39,7 @@ VALUES
     (default,'Song #16. Do The Worm', 'Prompt: The bug Catcher - Maybe you think of a kid with a net, or a entomologist, or a bug that eats bugs - whatever comes to mind! Challenge: Modulate to a different key somewhere in your song.', 4);
 
 INSERT INTO users
-  (id, user_name, password, email, bio, image)
+  (id, username, password, email, bio, image)
 VALUES
   (default,'Tara', 'Evans', '$2b$10$fbl7Ya0aQ23aeJJ2FN4GeOJ/Xp4XyA6zbEmmdCb2RUjUpINGHOfq.', 'tarajevans@hotmail.com', 'This is my all about me so I can talk all about myself!', 'Hello.jpg'),
   (default,'Prerana', 'Shukla', '$2b$10$fbl7Ya0aQ23aeJJ2FN4GeOJ/Xp4XyA6zbEmmdCb2RUjUpINGHOfq.', 'prerana@hotmail.com', 'This is my all about me so I can talk all about myself!', 'profile-picture.jpg'),
