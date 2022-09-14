@@ -9,8 +9,13 @@
                 <label for="content_txt">Challenge:</label>
                 <textarea minlength="5" required type="text" name="content_txt" id="content_txt" cols="30" rows="10"
                           class="form-input"></textarea>
+<<<<<<< Updated upstream
+                <label for="attached_type">Attachment:</label>
+                <input required type="file" id="attached_type" class="form-input"/>
+=======
                 <label for="attached_file">Attachment:</label>
                 <input required type="file" id="attached_file" class="form-input"/>
+>>>>>>> Stashed changes
                 <button type="submit">Submit</button>
             </form>
         </div>

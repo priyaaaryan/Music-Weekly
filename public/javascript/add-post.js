@@ -3,14 +3,15 @@ async function newFormHandler(event) {
 
   const title = document.querySelector('input[name="title"]').value;
   const content_txt = document.querySelector('input[name="content_txt"]').value;
-  const attach = document.querySelector('#attached_type').value;
+  const attach = document.querySelector('#attached_file').value;
 
   const response = await fetch(`/api/posts`, {
     method: 'POST',
     body: JSON.stringify({
-      title,
-      content_txt,
-      attacted_type
+      title: title,
+      content_txt: content_txt,
+      attached_file: attach,
+      type: document.querySelector('#type')
     }),
     headers: {
       'Content-Type': 'application/json'

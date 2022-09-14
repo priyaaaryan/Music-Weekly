@@ -17,7 +17,7 @@ CREATE TABLE posts (
     Title varchar(255) NOT NULL,
     content_txt varchar(255) NOT NULL,
     created_at datetime not null DEFAULT CURRENT_TIMESTAMP,
-    Attached_type varchar(100),
+    attached_file varchar(100),
     user_id int,
     PRIMARY KEY (id),
     FOREIGN KEY (user_id) REFERENCES Users(id)

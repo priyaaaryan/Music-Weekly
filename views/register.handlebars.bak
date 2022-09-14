@@ -1,6 +1,10 @@
 <container>
+<<<<<<< Updated upstream
+    <p style="color: black;">loggedIn: {{loggedIn}}</p>
+=======
     <!-- used to check if logged in or not when testing-->
     <!-- <p style="color: black;">loggedIn: {{loggedIn}}</p> -->
+>>>>>>> Stashed changes
     <row class="hero">
         <col>
             <div class="hero-intro">
