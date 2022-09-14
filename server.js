@@ -12,7 +12,7 @@ const express = require("express");
 
 // Initialize (create) the express object.
 const app = express();
-const PORT = process.env.SERVER_PORT || 8080;
+const PORT = process.env.PORT || 3001;
 const sess = {
   secret: "Super secret secret",
   cookie: {},
