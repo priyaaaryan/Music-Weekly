@@ -1,13 +1,19 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
 <container>
     <row class="hero">
         <col>
             <div class="hero-intro">
                 <h2>Meet our Musicians</h2><br>
                 <ul id="musicians">{{#each musicians}}
-                    <li class="musiciansLI">
+                    <li class="musiciansLI" id = "musicians">
                        <img src ="/uploads/{{this.image}}" width="30" height="30">
-                        {{this.username}}
+                       <a href="#bio_intro">{{this.username}}</a>
+                        
                     </li>
+
+                    <label id="bio_intro">About me : {{this.bio}} </label>
+                    
                     {{/each}}
 
                 </ul>
@@ -15,3 +21,12 @@
         </col>
     </row>
 </container>
+<script>
+    $("#bio_intro").hide();
+
+     $("#musicians").click(function(){
+            $("#bio_intro").show();
+
+    })
+
+</script>
