@@ -6,11 +6,10 @@
             <div class="hero-intro">
                 <h2>Meet our Musicians</h2><br>
                 <ul id="musicians">{{#each musicians}}
-                    <li class="musiciansLI" id = "musicians">
+                    <li class="musiciansLI">
                         <ul>
-                       {{this.username}}
-                       <div class = "profile" style = "display: none">
-                       
+                       <a href="#profile">{{this.username}}</a>
+                       <div class = "profile" style = "display: none">        
                             <li><lable id="meet">Profile-Picture:-</lable><br>
                             <img src ="/uploads/{{this.image}}" id = "Profil-image" width="100" height="100"></li>
                             <li><label id="bio_intro">About me : {{this.bio}} </label></li>
@@ -28,7 +27,7 @@
     </row>
 </container>
 <script>
-    $("#musicians").click(function(){
+    $("a").on("click",function(){
         $('.profile').toggle("slide");
     })
 
