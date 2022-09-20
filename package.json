@@ -7,7 +7,8 @@
   "description": "building an application music weekly",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "seed": "node seeds/index.js"
   },
   "keywords": [],
   "author": "Team Music Weekly",

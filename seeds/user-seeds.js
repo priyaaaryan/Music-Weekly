@@ -9,7 +9,7 @@ const userdata = [
     bio: 'This all I can say about my self'
   },
   {
-    username: 'Tara Evan',
+    username: 'Tara Evans',
     email: 'rmebes1@sogou.com',
     password: 'password123',
     bio: 'This all I can say about my self'
