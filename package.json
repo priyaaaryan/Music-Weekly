@@ -8,7 +8,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "seed": "node seeds/index.js"
+    "seeds": "node seeds/index.js"
   },
   "keywords": [],
   "author": "Team Music Weekly",
