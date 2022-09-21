@@ -8,39 +8,43 @@
                 <ul id="musicians">{{#each musicians}}
                     <li class="musiciansLI">
                         <ul>
-                      <href>{{this.username}}</href> 
-                       <div class = "profile" style = "display: none">
-                       
-                            <li><label id="meet">Profile-Picture:-</label><br>
-                            <img src ="/uploads/{{this.image}}" id = "Profil-image" width="100" height="100"></li>
-                            <li><label id="bio_intro">About me : {{this.bio}} </label></li>
-                    </div>     
+                      <a href= '#' onclick="show()" >{{this.username}}</a>
                     </ul>
-                    </li>
-
-                        
-                    
+                    </li>                       
                     {{/each}}
 
                 </ul>
             </div>
         </col>
         <col>
-        <div class="hero-form">
+        <div class="hero-form" id = "profile" style = "display:none">
+        <div id="show_profile">{{#each musicians}}
         <h3>{{this.username}}</h3><br>
-        <img src ="/uploads/{{this.image}}" id = "Profil-image" width="400" height="400">
-        <label id="bio_intro">About me : {{this.bio}} </label>
+        <img src ="/uploads/{{this.image}}" id = "profil-image" width="80" height="80"><br>
+        <label id="bio_intro">About me : {{this.bio}} </label><br>
         <ul>Musician Submissions</ul>
-        <li>link to music</li>
+        <li><a href ="#">link to music</a></li><br><br>
+        {{/each}}
+        </div>
+        
     </row>
 </container>
 
 
 
 <script>
-    $("a").on("click",function(){
-        $('.profile').toggle("slide");
-    })
+    
+
+    function show(){
+        var profile = document.getElementById("profile");
+
+        console.log(profile);
+        if(profile.style.display === "none"){
+        profile.style.display="block";
+        } else {
+            profile.style.display = "none";
+        }
+    }
 
 
 </script>
