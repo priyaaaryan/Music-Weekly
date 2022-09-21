@@ -2,7 +2,7 @@
     <p style="color: black;">loggedIn: {{loggedIn}}</p>
     <div class="priya-hero">
         <div class="priya-hero-form">
-            <h2>Describe your challenge!</h2><br>
+            <h2>This Week's Challenge!</h2><br>
             <form action="/api/posts" method="post" id="post-form">
                 <label for="tilte">Prompt:</label>
                 <input minlength="5" required type="text" name="title" id="title" class="form-input"/>
@@ -16,7 +16,7 @@
                 <label for="attached_file">Attachment:</label>
                 <input required type="file" id="attached_file" class="form-input"/>
 >>>>>>> Stashed changes
-                <button type="submit">Submit</button>
+                <button class="hero.form" type="submit">Submit</button>
             </form>
         </div>
         <div class="challenges ">

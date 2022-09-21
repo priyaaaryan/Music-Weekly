@@ -10,7 +10,7 @@
   </div>
 
   <div>
-    <button type="submit">add comment</button>
+    <button class="hero-form" type="submit">add comment</button>
   </div>
 </form>
 
