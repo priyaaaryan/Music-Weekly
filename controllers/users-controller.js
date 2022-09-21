@@ -9,6 +9,7 @@ const usersController = {
         console.log(dbUsersData.get({ plain: true }));
         const musicians = dbUsersData.map((user) => user.get({ plain: true }));
         res.render("musicians", { musicians });
+
       })
       .catch((err) => {
         console.log(err);
@@ -82,7 +83,7 @@ const usersController = {
 
   createUser: (req, res) => {
     Users.create({
-      username: req.body.Username,
+      username: req.body.Username.split(" ").join(""),
       password: req.body.password[0],
       email: req.body.email,
       bio: req.body.bio,
@@ -93,7 +94,6 @@ const usersController = {
           req.session.user_id = dbUsersData.id;
           req.session.username = dbUsersData.username;
           req.session.loggedIn = true;
-
           //redirect to the login page because we successfully created a user
           res.redirect("/blog");
         });

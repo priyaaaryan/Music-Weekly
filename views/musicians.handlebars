@@ -10,8 +10,10 @@
     <ul id="musicians">{{#each musicians}}
         <li class="musiciansLI">
             <ul>
+                
+
                         <!-- Trigger the modal with a button -->
-            <a href="#myModal{{this.username}}" data-toggle="modal">{{this.username}}</a>
+            <a href="#myModal{{this.username}}" data-toggle="modal" class="open-model">{{this.username}}</a>
 
             <!-- Modal -->
             <div class="modal fade" id="myModal{{this.username}}" tabindex="1" role="dialog" aria-labelledby="myProfile" aria-hidden="true">
@@ -24,7 +26,7 @@
                                 <h4 class="modal-title"></h4>
                             </div>
                             <div class="modal-body">
-                                <h4 class="modal-title">{{this.username}}</h4>
+                                <h4 class="modal-title" id="name">{{this.username}}</h4>
                                 <p><img src ="/uploads/{{this.image}}" id = "profil-image" width="80" height="80"><br>
                                 <label id="bio_intro">About me : {{this.bio}} </label><br>
                                 <ul>Musician Submissions
@@ -48,20 +50,11 @@
     </row>
 </container>
 <script>
-$(document).ready(function() {
-              
-            /* Centering the modal vertically */
-            function alignModal() {
-                var modalDialog = $(this).find(".modal-dialog");
-                modalDialog.css("margin-top", Math.max(0, 
-                ($(window).height() - modalDialog.height()) / 2));
-            }
-            $(".modal").on("shown.bs.modal", alignModal);
-  
-            /* Resizing the modal according the screen size */
-            $(window).on("resize", function() {
-                $(".modal:visible").each(alignModal);
-            });
-        });
-
+$(document).on("click", ".open-model", function () {
+     var myBookId = $(this).data('id');
+     $(".modal-body #profil-image").val( myBookId );
+     // As pointed out in comments, 
+     // it is unnecessary to have to manually call the modal.
+     // $('#addBookDialog').modal('show');
+});
 </script>
