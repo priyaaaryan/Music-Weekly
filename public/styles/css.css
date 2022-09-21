@@ -255,6 +255,51 @@ footer a {
   }
 }
 
+/* Styling modal */
+.modal:before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+}
+
+.modal-dialog {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.modal .modal-content {
+  padding: 40px 40px 40px 40px;
+  -webkit-animation-name: modal-animation;
+  -webkit-animation-duration: 2min;
+  animation-name: modal-animation;
+  animation-duration: 0.5s;
+  background-color: #fce138;
+  margin: 10px;
+}
+
+@-webkit-keyframes modal-animation {
+  from {
+      top: opx;
+      opacity: 0;
+  }
+  to {
+      top: 100px;
+      opacity: 1;
+  }
+}
+
+@keyframes modal-animation {
+  from {
+      top: 0px;
+      opacity: 0;
+  }
+  to {
+      top: 100px;
+      opacity: 1;
+  }
+}
+
 /* MEDIA QUERY FOR TABLETS AND SMALLER */
 @media screen and (max-width: 768px) {
   section {
@@ -278,9 +323,7 @@ footer a {
 color: white;
 }
 
-.comments {
-  /*color: black;*/
-}
+
 
 .priya-hero {
   background-image: url('../images/Digital_Music_Background.png');
@@ -321,3 +364,4 @@ color: white;
 .priya-hero-form button:hover {
   background-color:var(--quaternary-color);  
 }
+

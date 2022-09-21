@@ -1,50 +1,49 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <container>
     <row class="hero">
-        <col>
-            <div class="hero-intro">
+    <col>
+    <div class="hero-intro">
                 <h2>Meet our Musicians</h2><br>
-                <ul id="musicians">{{#each musicians}}
-                    <li class="musiciansLI">
-                        <ul>
-                      <a href= '#' onclick="show()" >{{this.username}}</a>
-                    </ul>
-                    </li>                       
-                    {{/each}}
+    <ul id="musicians">{{#each musicians}}
+        <li class="musiciansLI">
+            <ul>
+                        <!-- Trigger the modal with a button -->
+            <a href="" data-toggle="modal" data-target="#myModal">{{this.username}}</a>
 
-                </ul>
-            </div>
-        </col>
-        <col>
-        <div class="hero-form" id = "profile" style = "display:none">
-        <div id="show_profile">{{#each musicians}}
-        <h3>{{this.username}}</h3><br>
-        <img src ="/uploads/{{this.image}}" id = "profil-image" width="80" height="80"><br>
-        <label id="bio_intro">About me : {{this.bio}} </label><br>
-        <ul>Musician Submissions</ul>
-        <li><a href ="#">link to music</a></li><br><br>
+            <!-- Modal -->
+            <div class="modal fade" id="myModal" tabindex="1" role="dialog" aria-labelledby="myProfile" aria-hidden="true">
+                <div class="modal-dialog">
+    
+      <!-- Modal content-->
+                     <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title"></h4>
+                            </div>
+                            <div class="modal-body">
+                                <h4 class="modal-title">{{this.username}}</h4>
+                                <p><img src ="/uploads/{{this.image}}" id = "profil-image" width="80" height="80"><br>
+                                <label id="bio_intro">About me : {{this.bio}} </label><br>
+                                <ul>Musician Submissions
+                                <li><a href ="#">link to music</a></p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+      
+                </div>
+            </div> 
+            </ul>
+        </li>
         {{/each}}
-        </div>
-        
+    </ul>
+
+            
+    </div>
+    </col>
     </row>
 </container>
-
-
-
-<script>
-    
-
-    function show(){
-        var profile = document.getElementById("profile");
-
-        console.log(profile);
-        if(profile.style.display === "none"){
-        profile.style.display="block";
-        } else {
-            profile.style.display = "none";
-        }
-    }
-
-
-</script>
